@@ -1,12 +1,12 @@
 {
-    "name": "omnilight/yii2-shopping-cart",
+    "name": "jonggialdo/yii2-keranjang-belanja",
     "description": "Yii2 extension that adds shopping cart functions",
     "keywords": ["yii", "shopping cart"],
     "minimum-stability": "dev",
     "authors": [
         {
-            "name": "Pavel Agalecky",
-            "email": "pavel.agalecky@gmail.com"
+            "name": "Jonggi Abialdo",
+            "email": "jonggialdo@gmail.com"
         }
     ],
     "type": "yii2-extension",

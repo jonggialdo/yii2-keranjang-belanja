@@ -15,4 +15,4 @@ interface CartPositionProviderInterface
      * @return CartPositionInterface
      */
     public function getCartPosition($params = []);
-} 
+}

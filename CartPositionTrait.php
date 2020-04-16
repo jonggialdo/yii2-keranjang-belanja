@@ -13,6 +13,7 @@ use yii\base\Component;
 trait CartPositionTrait
 {
     protected $_quantity;
+    protected $_sampling;
 
     public function getQuantity()
     {
@@ -22,6 +23,17 @@ trait CartPositionTrait
     public function setQuantity($quantity)
     {
         $this->_quantity = $quantity;
+    }
+
+
+    public function getSampling()
+    {
+        return $this->_quantity;
+    }
+
+    public function setSampling($isSampling)
+    {
+        $this->_sampling = $quantity;
     }
 
     /**
@@ -42,4 +54,4 @@ trait CartPositionTrait
             $cost = max(0, $cost - $costEvent->discountValue);
         return $cost;
     }
-} 
+}

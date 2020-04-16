@@ -92,13 +92,16 @@ class ShoppingCart extends Component
      * @param CartPositionInterface $position
      * @param int $quantity
      */
-    public function put($position, $quantity = 1)
+    public function put($position, $quantity = 1, $isSampling = false)
     {
         if (isset($this->_positions[$position->getId()])) {
             $this->_positions[$position->getId()]->setQuantity(
                 $this->_positions[$position->getId()]->getQuantity() + $quantity);
+            $this->_positions[$position->getId()]->setSampling(
+                $this->_positions[$position->getId()]->getSampling());
         } else {
             $position->setQuantity($quantity);
+            $position->setSampling($isSampling);
             $this->_positions[$position->getId()] = $position;
         }
         $this->trigger(self::EVENT_POSITION_PUT, new CartActionEvent([
@@ -126,7 +129,7 @@ class ShoppingCart extends Component
      * @param CartPositionInterface $position
      * @param int $quantity
      */
-    public function update($position, $quantity)
+    public function update($position, $quantity, $isSampling = false)
     {
         if ($quantity <= 0) {
             $this->remove($position);
@@ -135,8 +138,10 @@ class ShoppingCart extends Component
 
         if (isset($this->_positions[$position->getId()])) {
             $this->_positions[$position->getId()]->setQuantity($quantity);
+            $this->_positions[$position->getId()]->setSampling($isSampling);
         } else {
             $position->setQuantity($quantity);
+            $position->setSampling($sampling);
             $this->_positions[$position->getId()] = $position;
         }
         $this->trigger(self::EVENT_POSITION_UPDATE, new CartActionEvent([
@@ -288,7 +293,7 @@ class ShoppingCart extends Component
     {
         $data = [];
         foreach ($this->positions as $position) {
-            $data[] = [$position->getId(), $position->getQuantity(), $position->getPrice()];
+            $data[] = [$position->getId(), $position->getQuantity(), $position->getPrice(), $position->getSampling()];
         }
         return md5(serialize($data));
     }

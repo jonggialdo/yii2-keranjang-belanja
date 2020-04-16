@@ -41,4 +41,15 @@ interface CartPositionInterface
      * @return int
      */
     public function getQuantity();
-} 
+
+    /**
+     * @param bool $isSampling
+     */
+    public function setSampling($isSampling);
+
+
+    /**
+     * @return int
+     */
+    public function getSampling();
+}

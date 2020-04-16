@@ -28,7 +28,7 @@ trait CartPositionTrait
 
     public function getSampling()
     {
-        return $this->_quantity;
+        return $this->_sampling;
     }
 
     public function setSampling($isSampling)

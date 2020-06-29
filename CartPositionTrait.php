@@ -33,7 +33,7 @@ trait CartPositionTrait
 
     public function setSampling($isSampling)
     {
-        $this->_sampling = $quantity;
+        $this->_sampling = $isSampling;
     }
 
     /**

@@ -59,7 +59,7 @@ class ShoppingCart extends Component
         if ($this->storeInSession)
             $this->loadFromSession();
     }
-
+    
     /**
      * Loads cart from session
      */
